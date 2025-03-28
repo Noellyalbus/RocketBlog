@@ -17,21 +17,19 @@
 
 .container{
     box-sizing: border-box;
-    max-width: 1556px;
-    padding-left: 20px;
-    padding-right: 20px;
+    max-width: 1441px;
     margin-left: auto;
     margin-right: auto;
 }
  
 /* Menu */
-.header-container{
+.header{
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 60px;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
+    padding-top: 60px;
 }
 
 .header-bg{
@@ -47,11 +45,33 @@
 .menu-item a{
     font: 400 1.3rem/1.35 'Roboto',sans-serif;
     color: var(--white);
+    position: relative;
 }
 
-.menu-item .home{
-    font-size: 700;
+.menu-item a::after {
+    content: '';
+    display: block;
+    height: 21px;
+    width: 2px;
+    background: var(--green);
+    transition: opacity 0.3s, transform 0.3s;
+    left: -5px;
+    top: 0;
+    position: absolute;
+    opacity: 0;
+    transform: translateY(5px);
 }
+
+.menu-item a.active::after{
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+.menu-item a:hover::after{
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .header-input{
     width: 300px;
@@ -64,12 +84,13 @@
 .header-input input{
     position: absolute;
     height: 100%;
-    width: 100%;
+    width: 300;
     margin-left: 15px;
     outline: none;
     border: none;
     background: transparent;
     font-size: 18px;
+    color: #fff;
 }
 
 .header-input button{
@@ -80,26 +101,83 @@
     height: 100%;
     border: none;
     border-radius: 0 6px 6px 0;
-    background-color: var(--button-bg);
+    background-color: var(--button-bg); 
 }
 
 /* Introdução */
 .int-bg{
     background: var(--purple-bg);
+    box-shadow: inset 0 -6px var(--green);
+}
+
+.int{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    gap: 0 60px;
 }
 
 .int-content{
-    display: grid;
-    grid-template-columns: 1fr 1fr ;
+    align-self: self-end;
+    padding-bottom: 100px;
 }
 
 .int-content h1{
     color: var(--button-bg);
     font: 700 3rem/1.25 "Poppins", sans-serif;
+    margin-bottom: 20px;
 }
 
 .int-content p{
     color: var(--white);
     font: 400 1.125rem/1.35 'Roboto', sans-serif;
+    margin-bottom: 40px;
 }
 
+.int-content a{
+    font: 700 1.125rem/1.35 'Roboto', sans-serif;
+    color: var(--button-bg);
+    position: relative;
+}
+
+.int-content a::after{
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/arrow-right.svg);
+    right: -30px;
+    top: 0;
+    position: absolute;
+}
+
+/* Blog Posts */
+.section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    gap: 0 40px;
+}
+
+.section h2{
+    font: 700 1.5rem/1.5 'Poppins',sans-serif;
+    color: var(--purple-bg);
+}
+
+.section h3{
+    font: 700 1.125rem/1.35 'Roboto',sans-serif;
+    color: var(--purple-bg);
+    margin-bottom: 20px;
+}
+
+.section p{
+    max-width: 55ch;
+    font: 400 1.125rem/1.35 'Roboto', sans-serif;
+    margin-bottom: 20px;
+}
+
+.blog-news .news-item{
+    margin-bottom: 60px;
+}
